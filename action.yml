@@ -1,0 +1,25 @@
+name: 'AI PR Reviewer'
+description: 'Analyzes pull requests for accessibility, performance, and security issues using AI'
+author: 'Your Name'
+
+inputs:
+  github-token:
+    description: 'GitHub token for commenting on PRs'
+    required: true
+    default: ${{ github.token }}
+  ai-provider:
+    description: 'AI provider to use (mock, ollama, openai)'
+    required: false
+    default: 'mock'
+  ai-api-key:
+    description: 'API key for the AI provider'
+    required: false
+    default: ''
+  ai-base-url:
+    description: 'Base URL for AI provider (for ollama)'
+    required: false
+    default: ''
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
